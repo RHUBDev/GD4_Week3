@@ -17,11 +17,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Get inputs
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
+        Vector3 moveDir = new Vector3(horiz, 0, vert);
+        //Move player on X/Z axes
+        transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime);
 
-        transform.Translate(horiz * moveSpeed * Time.deltaTime, 0, vert * moveSpeed * Time.deltaTime);
-
+        //Keep player in bounds
         if(transform.position.x > xBounds)
         {
             transform.position = new Vector3(xBounds, 0, transform.position.z);
