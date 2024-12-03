@@ -8,6 +8,7 @@ TagManager:
   - Carrot
   - Bone
   - Steak
+  - EndZone
   layers:
   - Default
   - TransparentFX

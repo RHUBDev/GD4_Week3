@@ -33,4 +33,12 @@ public class Animal : MonoBehaviour
             game.EndGame();
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "EndZone")
+        {
+            game.EndGame();
+        }
+    }
 }
