@@ -41,5 +41,15 @@ public class Animal2 : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+        else if(collision.gameObject.tag == "Player")
+        {
+            game.LoseLife();
+            Destroy(gameObject);
+        }
+        else if(collision.gameObject.tag != "Untagged")
+        {
+            game.LoseLife();
+            Destroy(collision.gameObject);
+        }
     }
 }

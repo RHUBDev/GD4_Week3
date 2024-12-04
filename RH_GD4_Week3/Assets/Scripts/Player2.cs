@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
-    private float moveSpeed = 5f;
+    private float moveSpeed = 10f;
     private float xBounds = 22f;
     private float zBounds = 15f;
     public GameObject bone;
@@ -14,6 +14,7 @@ public class Player2 : MonoBehaviour
     private Vector3[] playerlocs;
     private float playerz = -14f;
     private int currentloc = 0;
+    private float foodspawnz = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,8 @@ public class Player2 : MonoBehaviour
     void Update()
     {
         //Get inputs
-        float horiz = Input.GetAxis("Horizontal");
-        float vert = Input.GetAxis("Vertical");
+        float horiz = Input.GetAxisRaw("Horizontal");
+        float vert = Input.GetAxisRaw("Vertical");
 
         Vector3 moveDir = new Vector3(horiz, 0, vert);
         
@@ -52,19 +53,19 @@ public class Player2 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Instantiate(bone, transform.position + transform.forward * 1f + transform.up * 0.5f, transform.rotation);
+            Instantiate(bone, transform.position + transform.forward * foodspawnz + transform.up * 0.5f, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Instantiate(carrot, transform.position + transform.forward * 1f + transform.up * 0.5f, transform.rotation);
+            Instantiate(carrot, transform.position + transform.forward * foodspawnz + transform.up * 0.5f, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Instantiate(steak, transform.position + transform.forward * 1f + transform.up * 0.5f, transform.rotation);
+            Instantiate(steak, transform.position + transform.forward * foodspawnz + transform.up * 0.5f, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Instantiate(apple, transform.position + transform.forward * 1f + transform.up * 0.5f, transform.rotation);
+            Instantiate(apple, transform.position + transform.forward * foodspawnz + transform.up * 0.5f, transform.rotation);
         }
     }
 }

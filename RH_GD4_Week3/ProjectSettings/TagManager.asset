@@ -9,6 +9,7 @@ TagManager:
   - Bone
   - Steak
   - EndZone
+  - Game
   layers:
   - Default
   - TransparentFX
