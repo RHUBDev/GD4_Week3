@@ -77,4 +77,10 @@ public class Game : MonoBehaviour
     {
         SceneManager.LoadScene("MyLevel");
     }
+
+    public void Quit()
+    {
+        //Restart game
+        SceneManager.LoadScene("Menu");
+    }
 }

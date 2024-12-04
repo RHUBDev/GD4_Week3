@@ -11,9 +11,6 @@ public class Player2 : MonoBehaviour
     public GameObject carrot;
     public GameObject steak;
     public GameObject apple;
-    private Vector3[] playerlocs;
-    private float playerz = -14f;
-    private int currentloc = 0;
     private float foodspawnz = 2f;
     // Start is called before the first frame update
     void Start()
@@ -51,6 +48,7 @@ public class Player2 : MonoBehaviour
             transform.position = new Vector3(transform.position.x, 0, -zBounds);
         }
 
+        //Spawn Food
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Instantiate(bone, transform.position + transform.forward * foodspawnz + transform.up * 0.5f, transform.rotation);
