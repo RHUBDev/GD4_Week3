@@ -32,6 +32,7 @@ public class Animal2 : MonoBehaviour
     {
         if (collision.gameObject.tag == neededFood)
         {
+            game.chomp.Play();
             //Correct food, add point and destroy both
             fullness += 0.25f;
             Destroy(collision.gameObject);

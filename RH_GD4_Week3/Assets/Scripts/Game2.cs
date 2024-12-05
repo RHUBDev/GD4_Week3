@@ -26,6 +26,9 @@ public class Game2 : MonoBehaviour
     private float startdelay = 1f;
     public Canvas animalCanvas;
     public GameObject animalUI;
+    public AudioSource doh;
+    public AudioSource end;
+    public AudioSource chomp;
 
     // Start is called before the first frame update
     void Start()
@@ -158,12 +161,14 @@ public class Game2 : MonoBehaviour
         livesText.text = "Lives: " + lives;
         if(lives <= 0)
         {
+            end.Play();
             //if out of lives, end game
             lives = 0;
             EndGame();
         }
         else
         {
+            doh.Play();
             //else reset life timer to show "Lost Life!" message for two seconds
             lifetimer = lifetime;
         }

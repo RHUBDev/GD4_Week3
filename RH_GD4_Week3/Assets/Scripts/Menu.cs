@@ -7,8 +7,16 @@ public class Menu : MonoBehaviour
 {
     public Animator anim;
     public int num = 9;
-    private void Start()
+    public GameObject musicprefab;
+
+    private void Awake()
     {
+        GameObject music = GameObject.FindWithTag("Music");
+        if (!music)
+        {
+            Instantiate(musicprefab, Vector3.zero, Quaternion.identity);
+        }
+        Time.timeScale = 1f;
         anim.SetInteger("Animation_int", num);//.Play("Idle_SittingOnGround");
     }
 

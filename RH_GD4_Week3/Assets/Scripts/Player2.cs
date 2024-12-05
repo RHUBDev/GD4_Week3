@@ -12,6 +12,8 @@ public class Player2 : MonoBehaviour
     public GameObject steak;
     public GameObject apple;
     private float foodspawnz = 2f;
+    private Vector3 lastmovedir = new Vector3(0, 0, 1);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,15 @@ public class Player2 : MonoBehaviour
         Vector3 moveDir = new Vector3(horiz, 0, vert);
         
         //Move player on X/Z axes
-        transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime);
-        
+        transform.Translate(moveDir.normalized * moveSpeed * Time.deltaTime, Space.World);
+
+        //Store last non-zero move direction for aiming
+        if (moveDir != Vector3.zero)
+        {
+            lastmovedir = moveDir;
+        }
+
+        transform.rotation = Quaternion.LookRotation(lastmovedir);
         //Keep player in bounds
         if(transform.position.x > xBounds)
         {

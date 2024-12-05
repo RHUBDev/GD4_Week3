@@ -16,6 +16,10 @@ public class Game : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text endText;
     public GameObject restartButton;
+    public AudioSource doh;
+    public AudioSource end;
+    public AudioSource chomp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +53,14 @@ public class Game : MonoBehaviour
 
     public void AddScore()
     {
+        chomp.Play();
         score += 1;
         scoreText.text = "Score: " + score.ToString("n0");
     }
 
     public void EndGame()
     {
+        end.Play();
         int high = 0;
         if (PlayerPrefs.HasKey("HighScore"))
         {
