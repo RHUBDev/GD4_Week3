@@ -11,6 +11,8 @@ TagManager:
   - EndZone
   - Game
   - Music
+  - Dog
+  - Ball
   layers:
   - Default
   - TransparentFX
